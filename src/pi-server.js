@@ -1,6 +1,13 @@
 const express = require('express');
 const app = express();
-const arguments = process.argv.slice(2);
+/**
+ * first install seaport on the machine.
+ * > npm install seaport -g
+ * > seaport listen 9090
+ * Listening on the 9090 port on the machine.
+ */
+const seaport = require('seaport');
+const ports = seaport.connect('localhost', 9090);
 
 /**
  * Calculation of PI. Heavy task.
@@ -26,4 +33,4 @@ app.use('*', (req, res) => {
 
 const PORT = arguments[0];
 console.log('App listening on PORT:', PORT);
-app.listen(PORT);
+app.listen(ports.register('pi-server'));
