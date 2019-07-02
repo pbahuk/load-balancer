@@ -1,0 +1,16 @@
+{
+  "name": "load-balancer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/pi-server.js 8001 & node src/pi-server.js 8002 & node src/pi-server.js 8003 & node src/loadBalancer.js 8000"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-proxy": "^1.17.0"
+  }
+}
